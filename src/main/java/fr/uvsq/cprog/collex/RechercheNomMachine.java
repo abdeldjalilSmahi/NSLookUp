@@ -9,6 +9,7 @@ public class RechercheNomMachine implements Command{
         if (dns == null) {
             throw new NullPointerException("Dns null");
         }
+        this.dns = dns ;
         nomMachine = new NomMachine(strNomMachine);
 
     }
@@ -25,7 +26,7 @@ public class RechercheNomMachine implements Command{
             }
         }
         catch (Exception e){
-            return "Une erreur est survenue";
+            return "Une erreur est survenue ";
         }
     }
 }

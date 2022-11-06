@@ -8,6 +8,14 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        try {
+            Dns dns = new Dns();
+            DnsApp dnsApp= new DnsApp(dns);
+            dnsApp.run();
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+
     }
 }

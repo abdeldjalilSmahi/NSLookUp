@@ -3,7 +3,9 @@ package fr.uvsq.cprog.collex;
 public class DnsTUI {
     private Command command ;
     private Dns dns;
-    private DnsTUI(Dns dns){
+    private String cmd;
+    public DnsTUI(Dns dns, String cmd){
+        this.cmd = cmd;
         this.dns  = dns ;
 
     }
@@ -14,6 +16,7 @@ public class DnsTUI {
         if(NomMachine.isValidNomMachine(cmd)){
             this.command = new RechercheNomMachine(dns, cmd);
         }
+
         if(cmd.startsWith("add")){
             this.command = new AjouterItem(dns, cmd);
         }
@@ -29,8 +32,8 @@ public class DnsTUI {
         return this.command ;
 
     }
-    public String afficher(){
-        return this.command.execute();
+    public String afficher(Command command){
+        return command.execute();
     }
 
 }

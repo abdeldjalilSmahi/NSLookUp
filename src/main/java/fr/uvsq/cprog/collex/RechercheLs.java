@@ -1,5 +1,7 @@
 package fr.uvsq.cprog.collex;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,12 +22,24 @@ public class RechercheLs implements Command, IValidator{
     public String execute() {
         List<DnsItem> dnsItems = dns.getItems(nomDomaine);
         if(orderByIp){
-            dnsItems.sort((dns1,dns2)->dns1.getAdresseIP().toString().compareTo(dns2.getAdresseIP().toString()));
+//            dnsItems.sort((dns1,dns2)->dns1.getAdresseIP().toString().compareToIgnoreCase(dns2.getAdresseIP().toString()));
+              Collections.sort(dnsItems, new Comparator<DnsItem>() {
+                  @Override
+                  public int compare(DnsItem o1, DnsItem o2) {
+                      return o1.getAdresseIP().toString().compareTo(o2.getAdresseIP().toString());
+                  }
+              });
         }
         else {
-            dnsItems.sort((dns1,dns2)->dns1.getNomMachine().toString().compareTo(dns2.getNomMachine().toString()));
+//            dnsItems.sort((dns1,dns2)->dns1.getNomMachine().toString().compareToIgnoreCase(dns2.getNomMachine().toString()));
+            Collections.sort(dnsItems, new Comparator<DnsItem>() {
+                @Override
+                public int compare(DnsItem o1, DnsItem o2) {
+                    return o1.getNomMachine().toString().compareTo(o2.getNomMachine().toString());
+                }
+            });
         }
-        List<String> dnsItemStrings = dnsItems.stream().map(dnsItem -> dns.toString()).collect(Collectors.toList());
+        List<String> dnsItemStrings = dnsItems.stream().map(dnsItem -> dnsItem.toString()).collect(Collectors.toList());
         return String.join("\n",dnsItemStrings);
     }
 

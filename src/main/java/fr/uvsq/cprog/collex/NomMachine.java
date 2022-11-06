@@ -2,6 +2,8 @@ package fr.uvsq.cprog.collex;
 
 public class NomMachine implements IValidator{
     private String nomMachine;
+    private String nomDomaine ;
+    private String nomQualifie ;
 
     public NomMachine(String nomMachine){
         /*
@@ -9,6 +11,7 @@ public class NomMachine implements IValidator{
          */
         validate(nomMachine);
         this.nomMachine = nomMachine ;
+        parserNomMachine();
     }
 
     public String getNomMachine() {
@@ -21,8 +24,10 @@ public class NomMachine implements IValidator{
     et le nom du domaine après le premier point
      */
 
-    private String[] parserNomMachine(){
-        return this.getMachine().split("\\.",2);
+    private void parserNomMachine(){
+        String[] parser = this.getNomMachine().split("\\.",2);
+        this.nomQualifie = parser[0];
+        this.nomDomaine = parser[1];
     }
 
     /*
@@ -30,14 +35,14 @@ public class NomMachine implements IValidator{
     en se basant sur la méthode privé implémentée ci-dessus.
      */
     public String getMachine(){
-        return this.parserNomMachine()[0];
+        return this.nomMachine;
     }
     /*
     On expose aussi un méthode qui permet de retourner le nom du domaine.
      */
 
     public String getNomDomaine(){
-        return this.parserNomMachine()[1];
+        return this.nomDomaine ;
 
     }
     /*
