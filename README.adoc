@@ -1,5 +1,5 @@
 = Exercice : Manipulation de collections
-
+= Abdeldjalil SMAHI
 [IMPORTANT]
 ====
 Dans cet exercice, vous respecterez les contraintes suivantes:
