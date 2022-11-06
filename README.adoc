@@ -1,11 +1,12 @@
 = Exercice : Manipulation de collections
-= Abdeldjalil SMAHI
+
 [IMPORTANT]
+= *Abdeldjalil SMAHI*
 ====
 Dans cet exercice, vous respecterez les contraintes suivantes:
 
 * Vous utiliserez `git` en effectuant des commits réguliers comportant des messages informatifs.
-* Le _build_ sera assuré par Maven et plus précisément Maven wrapper (déjà intégré dans le projet).
+* Le _build_ sera assuré par *Maven* et plus précisément Maven wrapper (déjà intégré dans le projet).
 Aucune manipulation en dehors de Maven ne devra être nécessaire.
 * La version de Java à utiliser est la version 17.
 * Le _build_ devra intégrer `checkstyle` pour la vérification des règles de codages Google.
