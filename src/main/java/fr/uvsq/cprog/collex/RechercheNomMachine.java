@@ -21,7 +21,7 @@ public class RechercheNomMachine implements Command{
                 return "Not found";
             }
             else{
-                return item.getNomMachine().toString();
+                return item.getAdresseIP().toString();
             }
         }
         catch (Exception e){
