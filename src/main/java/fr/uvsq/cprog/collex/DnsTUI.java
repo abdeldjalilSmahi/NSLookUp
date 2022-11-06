@@ -8,6 +8,7 @@ public class DnsTUI {
 
     }
     public Command nextCommand(String cmd){
+        return null ;
 
     }
 
