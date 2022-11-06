@@ -1,8 +1,9 @@
 = Exercice : Manipulation de collections
-
-[IMPORTANT]
 = *Abdeldjalil SMAHI*
+[IMPORTANT]
+
 ====
+
 Dans cet exercice, vous respecterez les contraintes suivantes:
 
 * Vous utiliserez `git` en effectuant des commits réguliers comportant des messages informatifs.
