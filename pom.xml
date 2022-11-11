@@ -38,36 +38,10 @@
   </dependencies>
 
   <build>
+    <!--BEGIN pluginManagement-->
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <!--BEGIN plugins -->
       <plugins>
-        <!-- google checkstyle -->
-
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-checkstyle-plugin</artifactId>
-          <version>3.1.2</version>
-          <configuration>
-            <configLocation>google_checks.xml</configLocation>
-            <encoding>UTF-8</encoding>
-            <consoleOutput>true</consoleOutput>
-            <failsOnError>true</failsOnError>
-            <linkXRef>false</linkXRef>
-          </configuration>
-          <executions>
-            <execution>
-              <id>validate</id>
-              <phase>validate</phase>
-              <goals>
-                <goal>check</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-
-        <!--END GOOGLE CHECKSTYLE-->
-
-
-
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
@@ -108,7 +82,10 @@
           <version>3.4.1</version>
         </plugin>
       </plugins>
+      <!--END plugins-->
     </pluginManagement>
+    <!--END pluginManagement -->
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -118,6 +95,30 @@
           <target>8</target>
         </configuration>
       </plugin>
+
+      <!-- google checkstyle -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>3.1.2</version>
+        <configuration>
+          <configLocation>google_checks.xml</configLocation>
+          <encoding>UTF-8</encoding>
+          <consoleOutput>true</consoleOutput>
+          <failsOnError>true</failsOnError>
+          <linkXRef>false</linkXRef>
+        </configuration>
+        <executions>
+          <execution>
+            <id>validate</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!--END GOOGLE CHECKSTYLE-->
     </plugins>
   </build>
 </project>

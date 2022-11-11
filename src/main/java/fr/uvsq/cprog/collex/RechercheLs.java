@@ -26,7 +26,7 @@ public class RechercheLs implements Command, IValidator{
               Collections.sort(dnsItems, new Comparator<DnsItem>() {
                   @Override
                   public int compare(DnsItem o1, DnsItem o2) {
-                      return o1.getAdresseIP().toString().compareTo(o2.getAdresseIP().toString());
+                      return o1.getAdresseIp().toString().compareTo(o2.getAdresseIp().toString());
                   }
               });
         }

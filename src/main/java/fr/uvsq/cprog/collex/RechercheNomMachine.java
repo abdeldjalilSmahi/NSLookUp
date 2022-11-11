@@ -1,7 +1,5 @@
 package fr.uvsq.cprog.collex;
 
-import java.security.spec.ECPoint;
-
 public class RechercheNomMachine implements Command{
     private Dns dns;
     private NomMachine nomMachine;
@@ -22,7 +20,7 @@ public class RechercheNomMachine implements Command{
                 return "Not found";
             }
             else{
-                return item.getAdresseIP().toString();
+                return item.getAdresseIp().toString();
             }
         }
         catch (Exception e){

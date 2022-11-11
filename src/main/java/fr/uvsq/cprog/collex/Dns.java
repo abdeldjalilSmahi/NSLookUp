@@ -1,7 +1,6 @@
 package fr.uvsq.cprog.collex;
 
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,7 +26,7 @@ public class Dns {
      */
     public DnsItem getItem(AdresseIP adresseIP){
         return this.dnsItems.stream()
-                .filter(dnsItem -> dnsItem.getAdresseIP().equals(adresseIP))
+                .filter(dnsItem -> dnsItem.getAdresseIp().equals(adresseIP))
                 .findFirst()
                 .orElse(null);
     }

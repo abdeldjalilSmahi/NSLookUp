@@ -1,17 +1,21 @@
 package fr.uvsq.cprog.collex;
 
+/**
+ * Classe {@link DnsItem} responsable de la composition des {@link AdresseIP}
+ * et {@link NomMachine}.
+ */
 public class DnsItem {
-    private AdresseIP adresseIP ;
+    private AdresseIP adresseIp;
     private NomMachine nomMachine ;
 
-    public DnsItem(NomMachine nomMachine, AdresseIP adresseIP){
+    public DnsItem(NomMachine nomMachine, AdresseIP adresseIp){
         this.nomMachine = nomMachine ;
-        this.adresseIP = adresseIP ;
+        this.adresseIp = adresseIp;
 
     }
 
-    public AdresseIP getAdresseIP() {
-        return adresseIP;
+    public AdresseIP getAdresseIp() {
+        return adresseIp;
     }
 
     public NomMachine getNomMachine() {
@@ -19,6 +23,6 @@ public class DnsItem {
     }
     @Override
     public String toString() {
-        return this.nomMachine + " " + this.adresseIP ;
+        return this.nomMachine + " " + this.adresseIp;
     }
 }
