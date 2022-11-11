@@ -28,11 +28,19 @@
       <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
+
     <!-- https://mvnrepository.com/artifact/commons-validator/commons-validator -->
     <dependency>
       <groupId>commons-validator</groupId>
       <artifactId>commons-validator</artifactId>
       <version>1.7</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.puppycrawl.tools/checkstyle -->
+    <dependency>
+      <groupId>com.puppycrawl.tools</groupId>
+      <artifactId>checkstyle</artifactId>
+      <version>10.4</version>
     </dependency>
 
 
@@ -83,22 +91,40 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.4.1</version>
         </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>3.1.2</version>
+          <dependencies>
+            <dependency>
+              <groupId>com.puppycrawl.tools</groupId>
+              <artifactId>checkstyle</artifactId>
+              <version>10.4</version>
+            </dependency>
+          </dependencies>
+        </plugin>
       </plugins>
       <!--END plugins-->
     </pluginManagement>
     <!--END pluginManagement -->
 
     <plugins>
+
+      <!-- Déclaration de la calsse main-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
+        <artifactId>maven-jar-plugin</artifactId>
         <configuration>
-          <source>8</source>
-          <target>8</target>
+          <archive>
+            <manifest>
+              <mainClass>fr.uvsq.cprog.collex.App</mainClass>
+            </manifest>
+          </archive>
         </configuration>
       </plugin>
 
-      <!-- google checkstyle -->
+
+      <!--BEGIN Google Checkstyle  -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
@@ -121,6 +147,8 @@
         </executions>
       </plugin>
       <!--END GOOGLE CHECKSTYLE-->
+
+
     </plugins>
   </build>
 </project>
