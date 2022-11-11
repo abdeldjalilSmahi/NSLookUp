@@ -1,14 +1,15 @@
 package fr.uvsq.cprog.collex;
 
-public class Quitter implements Command{
-    private Dns dns;
+public class Quitter implements Command {
 
-    public Quitter(Dns dns) {
-        this.dns = dns;
-    }
+  private Dns dns;
 
-    @Override
-    public String execute() {
-        return "exit";
-    }
+  public Quitter(Dns dns) {
+    this.dns = dns;
+  }
+
+  @Override
+  public String execute() {
+    return "exit";
+  }
 }
