@@ -17,6 +17,7 @@ public class DnsApp {
   public void run() {
     System.out.println("Hi lets start");
     while (!quit) {
+      System.out.println("-----------------------------");
       try {
         Scanner sc = new Scanner(System.in);
         this.cmd = sc.nextLine();

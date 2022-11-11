@@ -21,6 +21,7 @@
   </properties>
 
   <dependencies>
+
     <!-- https://mvnrepository.com/artifact/junit/junit -->
     <dependency>
       <groupId>junit</groupId>
@@ -43,7 +44,7 @@
       <version>10.4</version>
     </dependency>
 
-
+    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-dependency-plugin -->
 
   </dependencies>
 
@@ -52,6 +53,12 @@
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <!--BEGIN plugins -->
       <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>3.4.2</version>
+        </plugin>
+
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
@@ -103,6 +110,7 @@
             </dependency>
           </dependencies>
         </plugin>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-dependency-plugin -->
       </plugins>
       <!--END plugins-->
     </pluginManagement>
@@ -110,10 +118,39 @@
 
     <plugins>
 
-      <!-- Déclaration de la calsse main-->
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.4.2</version>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+            <manifest>
+              <mainClass>fr.uvsq.cprog.collex.App</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id> <!-- this is used for inheritance merges -->
+            <phase>package</phase> <!-- bind to the packaging phase -->
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-jar</id>
+            <phase>none</phase>
+          </execution>
+        </executions>
         <configuration>
           <archive>
             <manifest>
@@ -124,11 +161,12 @@
       </plugin>
 
 
-      <!--BEGIN Google Checkstyle  -->
+      <!-- google checkstyle -->
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>3.2.0</version>
+        <version>3.1.2</version>
         <configuration>
           <configLocation>google_checks.xml</configLocation>
           <encoding>UTF-8</encoding>
@@ -146,7 +184,9 @@
           </execution>
         </executions>
       </plugin>
+
       <!--END GOOGLE CHECKSTYLE-->
+
     </plugins>
   </build>
 </project>

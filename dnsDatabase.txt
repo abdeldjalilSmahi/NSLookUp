@@ -4,3 +4,4 @@ www.uvsq.fr 193.51.31.90
 pikachu.uvsq.fr 193.51.25.24
 younes.uvsq.fr 192.168.1.2
 celine.uvsq.fr 192.168.12.18
+mehdi.uvsq.fr 192.168.15.13
