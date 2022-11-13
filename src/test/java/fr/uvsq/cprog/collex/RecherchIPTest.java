@@ -15,8 +15,15 @@ public class RecherchIPTest {
   @Test
   public void rechercherUnNomMachineByIpTest() {
     Dns dns = new Dns();
-    RecherchIP recherchIP = new RecherchIP(dns,"193.151.25.12");
-    assertEquals("ecampus.uvsq.fr",recherchIP.execute());
+    RecherchIP recherchIP = new RecherchIP(dns, "193.151.25.12");
+    assertEquals("ecampus.uvsq.fr", recherchIP.execute());
+  }
+
+  @Test
+  public void rechercherUnNomMachineDoesNotExistTest() {
+    Dns dns = new Dns();
+    RecherchIP recherchIP = new RecherchIP(dns, "193.151.25.152");
+    assertEquals("non trouvé", recherchIP.execute());
   }
 
 }
