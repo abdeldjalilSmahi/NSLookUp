@@ -11,12 +11,11 @@ public class DnsApp {
 
   public DnsApp(Dns dns) {
     this.dns = dns;
-
   }
 
   public void run() {
-
     while (!quit) {
+
       System.out.println("-----------------------------");
       try {
         Scanner sc = new Scanner(System.in);
@@ -25,7 +24,6 @@ public class DnsApp {
         Command command = dnsTUI.nextCommand(cmd);
         String result = dnsTUI.afficher(command);
         if (result == "exit") {
-          System.out.println(result);
           quit = true;
         }
         System.out.println(result);
@@ -33,9 +31,7 @@ public class DnsApp {
         System.out.println(e.getMessage());
       }
 
-
     }
-
   }
 
 }
