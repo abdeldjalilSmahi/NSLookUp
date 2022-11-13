@@ -19,6 +19,7 @@ public class DnsApp {
       System.out.println("-----------------------------");
       try {
         Scanner sc = new Scanner(System.in);
+        System.out.print("> ");
         this.cmd = sc.nextLine();
         dnsTUI = new DnsTUI(dns, cmd);
         Command command = dnsTUI.nextCommand(cmd);
@@ -26,7 +27,7 @@ public class DnsApp {
         if (result == "exit") {
           quit = true;
         }
-        System.out.println(result);
+        System.out.println("> "+result);
       } catch (Exception e) {
         System.out.println(e.getMessage());
       }
