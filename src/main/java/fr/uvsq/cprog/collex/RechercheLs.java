@@ -26,12 +26,7 @@ public class RechercheLs implements Command, IValidator {
     List<DnsItem> dnsItems = dns.getItems(nomDomaine);
     if (orderByIp) {
 //            dnsItems.sort((dns1,dns2)->dns1.getAdresseIP().toString().compareToIgnoreCase(dns2.getAdresseIP().toString()));
-      Collections.sort(dnsItems, new Comparator<DnsItem>() {
-        @Override
-        public int compare(DnsItem o1, DnsItem o2) {
-          return o1.getAdresseIp().toString().compareTo(o2.getAdresseIp().toString());
-        }
-      });
+      Collections.sort(dnsItems, Comparator.comparing(o -> o.getAdresseIp().toString()));
     } else {
 //            dnsItems.sort((dns1,dns2)->dns1.getNomMachine().toString().compareToIgnoreCase(dns2.getNomMachine().toString()));
       Collections.sort(dnsItems, new Comparator<DnsItem>() {
@@ -45,14 +40,8 @@ public class RechercheLs implements Command, IValidator {
     return String.join("\n", dnsItemStrings);
   }
 
-  /*
-  et de retour avec les vérification, supposons que l'utilisateur passe la commande ls uvsq.fr
-  cette requette qui commence par ls, en splitant ce string par rapport aux espaces le tableau resultant
-  doit contenir au moins deux elments ' car il y'a le cas de -a' si la longeur du tableau est inférieur à 2
-  une exception est levée.
-  on traite par la suite les cas, si il y a 2 elements est ce que l'element 1 du tableau 'tab[1]' est un nom du domaine valide
-  rappelant qu'on a exposé une méthode static dans la classe NomMachine qui se charge de faire ça.
-  et vice vers ça
+  /**
+   * et de retour avec les vérification, supposons que l'utilisateur passe la commande ls uvsq.fr cette requette qui commence par ls, en splitant ce string par rapport aux espaces le tableau resultant doit contenir au moins deux elments ' car il y'a le cas de -a' si la longeur du tableau est inférieur à 2 une exception est levée. on traite par la suite les cas, si il y a 2 elements est ce que l'element 1 du tableau 'tab[1]' est un nom du domaine valide rappelant qu'on a exposé une méthode static dans la classe NomMachine qui se charge de faire ça. et vice vers ça
    */
   @Override
   public void validate(String cmd) {
@@ -71,10 +60,8 @@ public class RechercheLs implements Command, IValidator {
 
       }
     }
-    /*
+    /**
      * on traite le cas ls -a uvsq.fr
-     *
-     *
      */
     if (array.length == 3) {
       if (array[1].equals("-a")) {

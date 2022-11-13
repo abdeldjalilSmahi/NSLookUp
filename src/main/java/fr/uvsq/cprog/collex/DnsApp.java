@@ -23,6 +23,8 @@ public class DnsApp {
    * {@link DnsTUI} joue le role de "the invoquer".
    */
   public void run() {
+    System.out.println("Bonjour, Je suis NS-Lookup\n"
+        + "Pour \"exit\" tappez quitter");
     while (!quit) {
 
       System.out.println("-----------------------------");

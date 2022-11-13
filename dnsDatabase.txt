@@ -9,3 +9,4 @@ smahi.uvsq.fr 192.168.1.17
 djalil.uvsq.fr 192.168.14.8
 ftp.uvsq.fr 192.168.1.200
 oussama.uvsq.fr 192.168.1.250
+www.facebook.fr 66.220.144.1
