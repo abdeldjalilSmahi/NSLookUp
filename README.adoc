@@ -1,5 +1,6 @@
-= Exercice : Manipulation de collections
-= *Abdeldjalil SMAHI*
+
+= Abdeldjalil SMAHI 22205250
+
 [IMPORTANT]
 
 ====
