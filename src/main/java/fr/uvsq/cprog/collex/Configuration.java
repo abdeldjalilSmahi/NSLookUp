@@ -1,8 +1,4 @@
 package fr.uvsq.cprog.collex;
-/*
-On se basant sur le principe single reponsability, nous créons une classe qui se charge de lire le fichier
-propreties et se base aussi de la lecture et l'écriture sur la base de données
- */
 
 import java.io.*;
 import java.nio.file.Files;
@@ -13,10 +9,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * On se basant sur le principe single reponsability, nous créons une classe qui se charge de lire
+ * le fichier propreties et se base aussi de la lecture et l'écriture sur la base de données.
+ */
+
 public class Configuration implements IValidator {
 
+  /**
+   * déclaration de l'attribut databasePath qui represente le chemin du fichier txt.
+   */
   private String databasePath;
 
+  /**
+   * Constructeur de la classe
+   *
+   * @param pathConfiguration le chemin du fichier de configuration.
+   * @throws IOException
+   */
   public Configuration(String pathConfiguration) throws IOException {
     validate(pathConfiguration);
     FileInputStream inputStream = new FileInputStream(pathConfiguration);
@@ -26,12 +36,15 @@ public class Configuration implements IValidator {
 
   }
 
+  /**
+   * @return le chemin de la base de données  databasePath
+   */
   private String getDatabasePath() {
     return this.databasePath;
   }
 
-  /*
-  La méthode qui lit le fichier text
+  /**
+   * La méthode qui lit le fichier text
    */
   public List<DnsItem> reLoadDatabase() throws IOException {
     List<DnsItem> dnsItemList = new ArrayList<>();
@@ -51,7 +64,7 @@ public class Configuration implements IValidator {
   }
 
   /*
-  une méthode qui gére l'écriture
+   * une méthode qui gére l'écriture
    */
   public void saveChanges(DnsItem dnsItem) throws IOException {
     FileWriter fileWriter = new FileWriter(this.getDatabasePath(), true);
@@ -61,6 +74,11 @@ public class Configuration implements IValidator {
 
   }
 
+  /**
+   * Implémentation de la méthode validate de l'interface {@link IValidator}.
+   *
+   * @param str
+   */
   @Override
   public void validate(String str) {
     if (!isValidPath(str)) {
@@ -69,6 +87,12 @@ public class Configuration implements IValidator {
 
   }
 
+  /**
+   * Méthode qui vérifie si le chemin est valide ou pas.
+   *
+   * @param path
+   * @return
+   */
   private static boolean isValidPath(String path) {
     try {
       Paths.get(path);
