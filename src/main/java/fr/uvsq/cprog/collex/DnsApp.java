@@ -2,6 +2,9 @@ package fr.uvsq.cprog.collex;
 
 import java.util.Scanner;
 
+/**
+ * Class DnsAPp résonsable des intéractions avec le client.
+ */
 public class DnsApp {
 
   private Dns dns;
@@ -13,6 +16,12 @@ public class DnsApp {
     this.dns = dns;
   }
 
+  /**
+   * La méthode résponsable avec les interactions utilisateurs.
+   * Réccupère leurs entrées.
+   * Selon l'entrée elle décide quel Command doit Invoquer "Principe du Command Design pattern".
+   * {@link DnsTUI} joue le role de "the invoquer".
+   */
   public void run() {
     while (!quit) {
 
@@ -27,7 +36,7 @@ public class DnsApp {
         if (result == "exit") {
           quit = true;
         }
-        System.out.println("> "+result);
+        System.out.println("> " + result);
       } catch (Exception e) {
         System.out.println(e.getMessage());
       }
